@@ -1,6 +1,5 @@
 # File Integrity Monitor (FIM) - Python-Based Security Tool
 
-Description:
 The File Integrity Monitor (FIM) is a powerful and versatile security tool developed in Python that allows users to monitor the integrity of files within a specified directory. Designed with professionals in mind, the FIM provides a robust solution for detecting unauthorized modifications, tampering, or deletion of critical files in real-time.
 
 Integrity monitoring is a crucial aspect of maintaining the security and integrity of sensitive data, especially in environments where multiple users have access to critical files or when compliance with regulatory standards is required. The FIM automates the process of file integrity monitoring, reducing the risk of undetected security breaches and unauthorized access.
