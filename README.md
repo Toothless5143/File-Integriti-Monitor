@@ -2,11 +2,11 @@
 
 The File Integrity Monitor is a Python script that allows you to monitor the integrity of one or more files by calculating their hash values. It compares the calculated hash values to a baseline to detect any modifications made to the monitored files.
 
-## Description
+## Description:
 
 The File Integrity Monitor provides a simple and effective way to ensure the integrity of important files. By calculating and comparing hash values, it can detect any unauthorized changes made to the monitored files. This can be particularly useful for detecting tampering or unexpected modifications in critical system files, configuration files, or sensitive data files.
 
-## Usage
+## Usage:
 
 To use the File Integrity Monitor, follow these steps:
 
@@ -30,7 +30,7 @@ To use the File Integrity Monitor, follow these steps:
 
 7. The script will continue running and monitoring the files until you manually stop it by pressing Ctrl+C.
 
-## Installation
+## Installation:
 
 To install and run the File Integrity Monitor, follow these steps:
 
@@ -61,7 +61,7 @@ To install and run the File Integrity Monitor, follow these steps:
 
 5. The script will calculate the baseline hash values of the monitored files and start monitoring them.
 
-## How the Code Works
+## How the Code Works:
 
 The File Integrity Monitor uses the SHA256 algorithm to calculate the hash values of the monitored files. It follows these steps:
 
