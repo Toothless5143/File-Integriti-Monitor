@@ -1,24 +1,38 @@
-# File Integrity Monitor (FIM) - Python-Based Security Tool
+# File Integrity Monitor
 
-The File Integrity Monitor (FIM) is a powerful and versatile security tool developed in Python that allows users to monitor the integrity of files within a specified directory. Designed with professionals in mind, the FIM provides a robust solution for detecting unauthorized modifications, tampering, or deletion of critical files in real-time.
+The File Integrity Monitor is a Python script that allows you to monitor the integrity of one or more files by calculating their hash values. It compares the calculated hash values to a baseline to detect any modifications made to the monitored files.
 
-Integrity monitoring is a crucial aspect of maintaining the security and integrity of sensitive data, especially in environments where multiple users have access to critical files or when compliance with regulatory standards is required. The FIM automates the process of file integrity monitoring, reducing the risk of undetected security breaches and unauthorized access.
+## Description
 
-### Features:
-1. **Hash Calculation:** The FIM utilizes the industry-standard SHA-256 algorithm to calculate the cryptographic hash of files within the monitored directory. This ensures a high level of accuracy and reliability in detecting even the slightest changes to file content.
+The File Integrity Monitor provides a simple and effective way to ensure the integrity of important files. By calculating and comparing hash values, it can detect any unauthorized changes made to the monitored files. This can be particularly useful for detecting tampering or unexpected modifications in critical system files, configuration files, or sensitive data files.
 
-2. **Real-Time Monitoring:** The FIM continuously monitors the specified directory, providing instant notifications of any modifications, additions, or deletions of files. By proactively detecting changes, it allows security administrators to swiftly respond to potential security incidents.
+## Usage
 
-3. **Event Reporting:** The tool generates comprehensive event reports containing detailed information about detected file changes, including the file path, timestamp, and type of modification. These reports serve as crucial audit logs for compliance purposes and facilitate forensic investigations.
+To use the File Integrity Monitor, follow these steps:
 
-4. **Scalability and Flexibility:** The FIM is designed to handle large directories with numerous files and subdirectories. It supports recursive monitoring, ensuring comprehensive coverage of the entire directory structure. Additionally, the tool can be easily customized to exclude specific files or directories from monitoring based on user-defined rules.
+1. Install Python3 if you haven't already.
 
-5. **Minimal Resource Footprint:** With optimized resource utilization, the FIM operates efficiently without imposing a significant burden on system performance. The configurable monitoring interval allows for fine-tuning, striking a balance between real-time monitoring and resource consumption.
+2. Download the `file_integrity_monitor.py` script from this repository.
 
-6. **User-Friendly Interface:** The FIM features a user-friendly command-line interface that simplifies configuration, monitoring, and reporting tasks. It offers clear and concise status updates, making it accessible to both security professionals and system administrators.
+3. Open a command prompt or terminal and navigate to the directory where the script is located.
 
-### Installation:
-To install and use the File Integrity Monitor (FIM), follow these steps:
+4. Run the script with the following command, providing the file paths you want to monitor as command line arguments:
+
+   ```
+   python file_integrity_monitor.py file1.txt file2.txt file3.txt
+   ```
+
+   Replace `file1.txt`, `file2.txt`, etc., with the actual file paths you want to monitor.
+
+5. The script will calculate the baseline hash values of the monitored files and start monitoring them.
+
+6. If any of the monitored files are modified, the script will print a message indicating which file has been modified.
+
+7. The script will continue running and monitoring the files until you manually stop it by pressing Ctrl+C.
+
+## Installation
+
+To install and run the File Integrity Monitor, follow these steps:
 
 1. Install the required dependencies by executing the following command:
    ```
@@ -35,42 +49,40 @@ To install and use the File Integrity Monitor (FIM), follow these steps:
    cd File-Integrity-Monitor
    ```
 
-4. Create a virtual environment (optional but recommended):
+4. Open a command prompt or terminal and navigate to the directory where the script is located.
+
+4. Run the script with the following command, providing the file paths you want to monitor as command line arguments:
+
    ```
-   python -m venv venv
-   ```
-
-5. Activate the virtual environment:
-   - For Windows:
-     ```
-     venv\Scripts\activate
-     ```
-   - For Linux/Mac:
-     ```
-     source venv/bin/activate
-     ```
-
-6. You're all set! Now you can run the FIM using the usage instructions mentioned above.
-
-### Usage:
-
-1. Run the FIM by executing the following command:
-   ```
-   python fim.py </path/to/directory>
+   python file_integrity_monitor.py file1.txt file2.txt file3.txt
    ```
 
-   Replace `</path/to/directory>` with the actual directory path you want to monitor.
+   Replace `file1.txt`, `file2.txt`, etc., with the actual file paths you want to monitor.
 
-2. The FIM will start monitoring the specified directory, providing real-time notifications of any file modifications, additions, or deletions. Event reports will be generated, allowing you to review and respond to detected changes promptly.
+5. The script will calculate the baseline hash values of the monitored files and start monitoring them.
 
-### How the code works:
-The `calculate_hash` function uses the `SHA-256` algorithm to calculate the hash of a file. The `monitor_directory` function accepts a directory path as an argument and continuously monitors the directory for changes in file integrity.
+## How the Code Works
 
-The script first calculates the initial hashes of all files in the directory and stores them in a dictionary. It then enters an infinite loop where it repeatedly checks for new, modified, and deleted files.
+The File Integrity Monitor uses the SHA256 algorithm to calculate the hash values of the monitored files. It follows these steps:
 
-When a new file is detected, it prints a message indicating the file's path. When a file is modified, it prints a message indicating the modified file's path. Similarly, when a file is deleted, it prints a message indicating the deleted file's path.
+1. The `get_file_hash` function calculates the hash value of a file by reading it in chunks and updating the hash digest using the SHA256 algorithm.
 
-The script sleeps for `60` seconds between each iteration of the loop to avoid excessive resource usage, but you can adjust the sleep interval as needed.
+2. In the `main` function, the command line arguments are retrieved using `sys.argv[1:]`, excluding the script nameitself. These arguments should be the file paths that you want to monitor.
+
+3. The baseline hash values of the monitored files are calculated and stored in the `baseline_file_hashes` dictionary.
+
+4. The code enters an infinite loop and repeatedly calculates the current hash values of the monitored files.
+
+5. The current hash values are compared to the baseline hash values. If any file's current hash value differs from its baseline hash value, it means the file has been modified, and a corresponding message is printed.
+
+6. The program sleeps for 60 seconds using the `time.sleep` function to add a delay between each monitoring iteration.
+
+7. The monitoring process continues until you manually stop the program.
+
+Please note that it's important to keep the script running in the background to continuously monitor the files. You can customize the monitoring interval by adjusting the sleep duration in the code.
+
+Feel free to modify and adapt the code according to your specific requirements.
+
 
 ### Conclusion:
 The File Integrity Monitor is a valuable addition to any security arsenal, enabling organizations to proactively safeguard critical data, detect unauthorized changes, and maintain regulatory compliance. By leveraging its robust integrity monitoring capabilities, users can bolster their security posture and promptly respond to potential security incidents, ensuring the integrity and confidentiality of their valuable data assets.
