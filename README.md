@@ -30,6 +30,8 @@ To use the File Integrity Monitor, follow these steps:
 
 7. The script will continue running and monitoring the files until you manually stop it by pressing `Ctrl+C`.
 
+8. Optional: The output of the tool can be stored inside a file using different Linux utilities like `tee` for further investigations.
+
 ## Installation:
 
 To install and run the File Integrity Monitor, follow these steps:
