@@ -28,7 +28,7 @@ To use the File Integrity Monitor, follow these steps:
 
 6. If any of the monitored files are modified, the script will print a message indicating which file has been modified.
 
-7. The script will continue running and monitoring the files until you manually stop it by pressing Ctrl+C.
+7. The script will continue running and monitoring the files until you manually stop it by pressing `Ctrl+C`.
 
 ## Installation:
 
@@ -78,6 +78,8 @@ The File Integrity Monitor uses the SHA256 algorithm to calculate the hash value
 6. The program sleeps for 60 seconds using the `time.sleep` function to add a delay between each monitoring iteration.
 
 7. The monitoring process continues until you manually stop the program.
+
+8. Optional: You can pipe the output of the tool to a different file to keep track of the log.
 
 Please note that it's important to keep the script running in the background to continuously monitor the files. You can customize the monitoring interval by adjusting the sleep duration in the code.
 
